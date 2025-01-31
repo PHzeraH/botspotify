@@ -1,0 +1,33 @@
+name: Run Twitch Spotify Bot
+
+on:
+  push:
+    branches:
+      - master  # Ou "main", dependendo do nome da sua branch
+  workflow_dispatch:  # Permite executar manualmente
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Ambiente de execução
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2  # Faz checkout do código
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'  # Defina a versão do Node.js que você está usando
+
+    - name: Install dependencies
+      run: |
+        npm install  # Instala dependências listadas no package.json
+
+    - name: Run bot script
+      run: |
+        node index.js
+      env:
+        SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
+        SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
+        TWITCH_OAUTH_TOKEN: ${{ secrets.TWITCH_OAUTH_TOKEN }}
+
