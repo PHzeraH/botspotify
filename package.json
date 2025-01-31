@@ -1,18 +1,18 @@
 {
-  "name": "botspotify",
+  "name": "twitch-spotify-bot",
   "version": "1.0.0",
-  "description": "Init Spotify",
+  "description": "Bot para controlar música no Spotify através de comandos no Twitch",
   "main": "index.js",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "express": "^4.17.1",
+    "tmi.js": "^1.8.5",
+    "spotify-web-api-node": "^5.0.0",
+    "dotenv": "^10.0.0"
+  },
   "scripts": {
-    "test": "Teste"
+    "start": "node index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "botspotify"
-  },
-  "keywords": [
-    "Spotify"
-  ],
-  "author": "PHzeraH",
-  "license": "UNLICENSED"
+  "author": "",
+  "license": "ISC"
 }
